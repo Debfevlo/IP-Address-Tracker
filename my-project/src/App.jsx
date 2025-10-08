@@ -8,12 +8,14 @@ import IPMap from "./components/IPMap"
 
 const App = () => {
   return (
-    <div className="">
-      
+    <div className="relative"> 
       <Header/>
-      <InfoDisplay/>
-      <IPMap/>
-     
+      <div className="absolute left-1/2 md:left-[60%] top-48  transform -translate-x-1/2 z-20 w-11/12 md:w-3/4">
+        <InfoDisplay/>
+      </div>
+      <div className="relative z-0">
+         <IPMap/>
+      </div>
     </div>
   )
 }

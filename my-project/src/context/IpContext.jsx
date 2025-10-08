@@ -12,27 +12,28 @@ export const IPProvider = ({children})=>{
     const apiKey = import.meta.env.VITE_IP_API_KEY; 
     const defaultIPAddress = '8.8.8.8'
 
+    const handleFetchIP = async (ip = defaultIPAddress)=>{
+
+        try {
+      setLoading(true);
+      setError(null);
+
+      const data = await fetchIPData(apiKey, ip);
+      setIPData(data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
     useEffect(()=>{
-        async function getData(){
-            try{
-            const data = await fetchIPData(apiKey, defaultIPAddress)
-            setIPData(data)
-        }catch(error){
-            setError(error.message)
-
-        }finally{
-            setLoading(false)
-        }
-
-        }
-
-        getData()
-        
+       handleFetchIP(defaultIPAddress)
     }, [defaultIPAddress, apiKey])
 
 
     return(
-        <IPContext.Provider value={{ipData, loading, error}}>
+        <IPContext.Provider value={{ipData, loading, error, handleFetchIP}}>
             {children}
         </IPContext.Provider>
     )

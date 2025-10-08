@@ -1,26 +1,34 @@
-
+import { useContext } from "react"
+import { IPContext } from "../context/IpContext"
 
 const InfoDisplay = () => {
+    const { ipData } = useContext(IPContext) || {};
+    const location = ipData?.location;
+    const country = location?.country
+    const IPAddress = ipData?.ip
+    const Time_Zone = location?.timezone
+    const ISP = ipData?.isp
+
   return (
-    <div className='flex bg-amber-200 md:w-3/4 p-10 justify-between rounded-lg'>
+    <div className='flex flex-col md:flex-row bg-white md:w-3/4 p-10 justify-between rounded-lg'>
         <div className='flex flex-col'>
-            <p>IP ADDRESS</p>
-            <p>192.212.174.101</p>
+            <p className="text-xs text-gray-400">IP ADDRESS</p>
+            <p className="text-xl font-bold">{IPAddress}</p>
         </div>
-        <div className='border-1'></div>
+        <div className='md:border-[0.5px] border-gray-300'></div>
         <div  className='flex flex-col'>
-            <p>LOCATION</p>
-            <p>Brooklyn Nwe York</p>
+            <p className="text-xs text-gray-400">LOCATION</p>
+            <p className="text-xl font-bold">{country}</p>
         </div >
-        <div className='border-1 border-gray-300'></div>
+        <div className='md:border-[0.5px] border-gray-300'></div>
         <div  className='flex flex-col'>
-            <p>TIME ZONE</p>
-            <p>UTC-05:00</p>
+            <p className="text-xs text-gray-400">TIME ZONE</p>
+            <p className="text-xl font-bold">{Time_Zone}</p>
         </div>
-        <div className='border-1'></div>
+        <div className='md:border-[0.5px] border-gray-300'></div>
         <div  className='flex flex-col'>
-            <p>ISP</p>
-            <p>SpaceX Starlink</p>
+            <p className="text-xs text-gray-400">ISP</p>
+            <p className="text-xl font-bold">{ISP}</p>
         </div>
     </div>
   )
