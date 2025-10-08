@@ -10,23 +10,23 @@ const InfoDisplay = () => {
     const ISP = ipData?.isp
 
   return (
-    <div className='flex flex-col md:flex-row bg-white md:w-3/4 p-10 justify-between rounded-lg'>
-        <div className='flex flex-col'>
+    <div className='flex flex-col text-center gap-3 md:gap-0  md:flex-row bg-white md:w-3/4 p-10 justify-between rounded-lg'>
+        <div className='flex flex-col gap-1'>
             <p className="text-xs text-gray-400">IP ADDRESS</p>
             <p className="text-xl font-bold">{IPAddress}</p>
         </div>
         <div className='md:border-[0.5px] border-gray-300'></div>
-        <div  className='flex flex-col'>
+        <div  className='flex flex-col gap-1'>
             <p className="text-xs text-gray-400">LOCATION</p>
             <p className="text-xl font-bold">{country}</p>
         </div >
         <div className='md:border-[0.5px] border-gray-300'></div>
-        <div  className='flex flex-col'>
+        <div  className='flex flex-col gap-1'>
             <p className="text-xs text-gray-400">TIME ZONE</p>
             <p className="text-xl font-bold">{Time_Zone}</p>
         </div>
         <div className='md:border-[0.5px] border-gray-300'></div>
-        <div  className='flex flex-col'>
+        <div  className='flex flex-col gap-1'>
             <p className="text-xs text-gray-400">ISP</p>
             <p className="text-xl font-bold">{ISP}</p>
         </div>
