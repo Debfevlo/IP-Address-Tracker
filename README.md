@@ -1,6 +1,6 @@
 # Frontend Mentor - IP address tracker solution
 
-![Desktop View](images/desktop-design.jpg)
+![Desktop View](/images/desktop-design.jpg)
 ![Mobile view](images/mobile-design.jpg)
 
 
